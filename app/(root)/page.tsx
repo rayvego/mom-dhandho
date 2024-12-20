@@ -154,6 +154,7 @@ export default function Home() {
   return (
     <div className="pt-16 min-h-screen">
       <ImageSlider />
+      {/* // TODO: Fix scrolling issue */}
       <div className="home-content">
         {sections.map((section) => (
           <ProductSection

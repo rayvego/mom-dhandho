@@ -4,6 +4,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRef } from "react";
 
+// TODO: Make it so that the photos of each product are displayed in a cycle
+
 interface Product {
   id: number;
   name: string;

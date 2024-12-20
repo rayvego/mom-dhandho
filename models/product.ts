@@ -15,15 +15,23 @@ const productSchema = new Schema({
   category: {
     type: String,
   },
-  image: {
+  images: {
+    type: [String],
+    default: [],
+  },
+  size: {
     type: String,
+    enum: ["XS", "S", "M", "L", "XL", "XXL"],
   },
-  quantity: {
-    type: Number,
-  },
-  reviews: {
-    ref: "Review",
-    type: Schema.Types.ObjectId,
+  reviews: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Review",
+    },
+  ],
+  tags: {
+    type: [String],
+    default: [],
   },
   type: {
     type: String,
@@ -33,8 +41,8 @@ const productSchema = new Schema({
   sale: {
     type: Number,
     default: 0,
-  }
-})
+  },
+});
 
 const Products = models.Products || mongoose.model("Products", productSchema);
 

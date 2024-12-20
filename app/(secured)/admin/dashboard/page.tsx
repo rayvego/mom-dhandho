@@ -27,7 +27,7 @@ const inventoryData = {
 
 export default function Dashboard() {
   return (
-    <div className="pt-20 min-h-screen p-8 space-y-8">
+    <div className="min-h-screen p-8 space-y-8">
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {/* Orders Chart */}
         <div className="shadow-xl">

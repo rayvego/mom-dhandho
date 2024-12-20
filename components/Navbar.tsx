@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { SignedIn, SignedOut, SignInButton, SignUpButton } from "@clerk/nextjs";
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -75,27 +76,37 @@ export const Navbar = () => {
           </Link>
 
           {/* Search Bar */}
-          <div className="ml-12 flex items-center gap-4">
+          <div className="ml-8 flex items-center gap-4">
             <Search />
             <Input type="text" placeholder="Search" className="border border-muted-foreground rounded-lg p-2 w-52" />
           </div>
         </div>
 
-        <div className="flex items-center gap-6 mr-2">
-          <Link href={"/profile"}>
-            <User className="h-6 w-6" />
-          </Link>
-          <Sheet>
-            <SheetTrigger asChild>
-              <ShoppingCart className="h-6 w-6 hover:cursor-pointer" />
-            </SheetTrigger>
-            <SheetContent side="right">
-              <h2 className="text-2xl mb-4">Shopping Cart</h2>
-              <div className="flex flex-col gap-4">
-                <p className="text-muted-foreground">Your cart is empty</p>
-              </div>
-            </SheetContent>
-          </Sheet>
+        <div className="flex items-center gap-4 mr-2">
+          <SignedIn>
+            <Link href={"/user"}>
+              <User className="h-6 w-6 mr-2" />
+            </Link>
+            <Sheet>
+              <SheetTrigger asChild>
+                <ShoppingCart className="h-6 w-6 hover:cursor-pointer" />
+              </SheetTrigger>
+              <SheetContent side="right">
+                <h2 className="text-2xl mb-4">Shopping Cart</h2>
+                <div className="flex flex-col gap-4">
+                  <p className="text-muted-foreground">Your cart is empty</p>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </SignedIn>
+          <SignedOut>
+            <div className="border-2 border-primary text-primary rounded-lg py-2 px-4 font-semibold text-center transition-all hover:bg-primary hover:text-white shadow-md">
+              <SignInButton />
+            </div>
+            <div className="border-2 border-primary text-primary rounded-lg py-2 px-4 font-semibold text-center transition-all hover:bg-primary hover:text-white shadow-md">
+              <SignUpButton />
+            </div>
+          </SignedOut>
         </div>
       </div>
     </nav>
