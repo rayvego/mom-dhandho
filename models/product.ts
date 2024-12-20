@@ -25,6 +25,15 @@ const productSchema = new Schema({
     ref: "Review",
     type: Schema.Types.ObjectId,
   },
+  type: {
+    type: String,
+    required: true,
+    default: "saree",
+  },
+  sale: {
+    type: Number,
+    default: 0,
+  }
 })
 
 const Products = models.Products || mongoose.model("Products", productSchema);
