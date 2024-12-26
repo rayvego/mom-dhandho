@@ -12,3 +12,4 @@ export const formatCurrency = (amount: number) => {
   }).format(amount);
 };
 
+export const CLOUDFRONT_URL = "https://doxv99hgiog24.cloudfront.net";

@@ -12,9 +12,6 @@ const productSchema = new Schema({
   description: {
     type: String,
   },
-  category: {
-    type: String,
-  },
   images: {
     type: [String],
     default: [],
@@ -33,7 +30,7 @@ const productSchema = new Schema({
     type: [String],
     default: [],
   },
-  type: {
+  category: {
     type: String,
     required: true,
     default: "saree",

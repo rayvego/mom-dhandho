@@ -31,7 +31,7 @@ export function AdminSidebar() {
     <Sidebar variant="floating" className="border-r">
       <SidebarHeader className="border-b px-6 py-3">
         <Link href="/" className="flex items-center gap-2 font-semibold">
-          <span className="text-xl">VASTRAM</span>
+          <span className="text-xl">👘 VASTRAM</span>
         </Link>
       </SidebarHeader>
       <SidebarContent>
